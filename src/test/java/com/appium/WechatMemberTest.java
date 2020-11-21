@@ -17,4 +17,19 @@ public class WechatMemberTest {
         HomePage homePage = new HomePage();
         homePage.contact().addMember(userName, phone);
     }
+    @Test
+    @Order(2)
+    public void testSearchEditMember(){
+        HomePage homePage = new HomePage();
+        homePage.contact().searchEditMember(userName);
+    }
+
+    @Test
+    @Order(3)
+    public void testSearchDeleteMember(){
+        HomePage homePage = new HomePage();
+        homePage.contact().deleteMember(userName);
+    }
+
+
 }
