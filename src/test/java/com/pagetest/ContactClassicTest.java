@@ -22,6 +22,11 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ContactClassicTest {
+    /**
+     * 测试步骤
+     * 测试数据
+     * 断言
+     */
 
     private static WebDriver driver;
 
@@ -85,8 +90,12 @@ public class ContactClassicTest {
         click(By.linkText("保存"));
     }
 
+    /**
+     * 参数化举例
+     */
     @Test
     void search() {
+
 
     }
 
