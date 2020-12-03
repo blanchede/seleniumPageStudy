@@ -1,0 +1,13 @@
+#在数据驱动中再次实现参数化支持
+
+data:
+  - orange
+  - banana
+
+#支持page object
+steps:
+  #- init: [mainPage, com.framework.MainPage]
+  - init: [mainPage, main_po.yaml ]
+  - mainPage.search: { }
+  #- searchPage: {}
+ # - searchPage.search: ${data}

@@ -2,17 +2,11 @@ package com.framework;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import jdk.internal.org.objectweb.asm.TypeReference;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
-import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 public class ParamsTest {
@@ -43,12 +37,15 @@ public class ParamsTest {
         //done: runner引擎
         testCase.run();
     }
-    static Stream<TestCase> searchDemo02() throws IOException {
-        //return  Stream.of("apple","banana");//传入数据可以外部读取
+    static List<TestCase> search() throws IOException {
+//        return Stream.of("apple", "banana");
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+//        TypeReference typeReference = new TypeReference<List<String>>() {
+//        };
         TestCase testCase = mapper.readValue(
-                ParamsTest.class.getResourceAsStream("/framework/search.yaml"),
-                TestCase.class);
-        return Stream.of(testCase);
+                ParamsTest.class.getResourceAsStream("/framework/search_po_test.yaml"),
+                POTestCase.class);
+        return testCase.testcaseGenerate();
+
     }
 }
